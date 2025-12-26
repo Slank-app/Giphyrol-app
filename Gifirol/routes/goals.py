@@ -71,7 +71,7 @@ def update_goal(goal_id):
         return jsonify({"error": "invalid status"}), 400
     goal.target = data["target"]
     goal.target_count = data["target_count"]
-    goal.daily_time = data["daily_time"],
+    goal.daily_time = data["daily_time"]
     goal.status = data["status"]
     try:
         db.session.commit()
@@ -94,3 +94,4 @@ def delete_goal(goal_id):
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
     return jsonify({"deleted_id": goal_id}), 200
+
